@@ -14,7 +14,7 @@ class StudentTableSeeder extends Seeder
     {
         $this->idValidator = new IdValidator();
         //生成一些 16040xxyy的学生信息
-        for ($i = 0; $i < 30; ++$i) {
+        for ($i = 0; $i < 5; ++$i) {
             DB::table('t_student')->insert([
                 'stu_status' => 'PREPARE',
                 'stu_degree' => 'UG',
@@ -28,7 +28,7 @@ class StudentTableSeeder extends Seeder
             ]);
         }
         //生成一些 16020xxyy的学生信息
-        for ($i = 0; $i < 30; ++$i) {
+        for ($i = 0; $i < 5; ++$i) {
             DB::table('t_student')->insert([
                 'stu_status' => 'PREPARE',
                 'stu_degree' => 'UG',
@@ -41,7 +41,7 @@ class StudentTableSeeder extends Seeder
             ]);
         }
         //生成一些 15040xxyy的学生信息（在校生）
-        for ($i = 0; $i < 30; ++$i) {
+        for ($i = 0; $i < 5; ++$i) {
             DB::table('t_student')->insert([
                 'stu_status' => 'CURRENT',
                 'stu_degree' => 'UG',
@@ -77,64 +77,64 @@ class StudentTableSeeder extends Seeder
             'stu_from_school'=> '实验中学',
         ]);
 
-        DB::table('t_student')->insert([
-            'stu_status' => 'CURRENT',
-            'stu_degree' => 'UG',
-            'stu_num' => '150400402',
-            'stu_name' => '四班乙',
-            'stu_gen' => true,
-            'stu_cid' => '451423199810285725',
-            'stu_eid' => '11145678901234',
-            'stu_dorm_str' => '12-666-5',
-            'stu_from_school'=> '实验中学',
-        ]);
+        // DB::table('t_student')->insert([
+        //     'stu_status' => 'CURRENT',
+        //     'stu_degree' => 'UG',
+        //     'stu_num' => '150400402',
+        //     'stu_name' => '四班乙',
+        //     'stu_gen' => true,
+        //     'stu_cid' => '451423199810285725',
+        //     'stu_eid' => '11145678901239',
+        //     'stu_dorm_str' => '12-666-5',
+        //     'stu_from_school'=> '实验中学',
+        // ]);
 
-        DB::table('t_student')->insert([
-            'stu_status' => 'PREPARE',
-            'stu_degree' => 'UG',
-            'stu_num' => '160400403',
-            'stu_name' => '四班丙',
-            'stu_gen' => true,
-            'stu_cid' => '230123199603077335',
-            'stu_eid' => '11145678901234',
-            'stu_dorm_str' => '12-667-4',
-            'stu_from_school'=> '实验中学',
-        ]);
+        // DB::table('t_student')->insert([
+        //     'stu_status' => 'PREPARE',
+        //     'stu_degree' => 'UG',
+        //     'stu_num' => '160400403',
+        //     'stu_name' => '四班丙',
+        //     'stu_gen' => true,
+        //     'stu_cid' => '230123199603077335',
+        //     'stu_eid' => '11145678901234',
+        //     'stu_dorm_str' => '12-667-4',
+        //     'stu_from_school'=> '实验中学',
+        // ]);
 
-        DB::table('t_student')->insert([
-            'stu_status' => 'PREPARE',
-            'stu_degree' => 'UG',
-            'stu_num' => '160400404',
-            'stu_name' => '四班丁',
-            'stu_gen' => false,
-            'stu_cid' => '500104199609097886',
-            'stu_eid' => '11145678901234',
-            'stu_dorm_str' => '10-531-3',
-            'stu_from_school'=> 'A实验中学',
-        ]);
+        // DB::table('t_student')->insert([
+        //     'stu_status' => 'PREPARE',
+        //     'stu_degree' => 'UG',
+        //     'stu_num' => '160400404',
+        //     'stu_name' => '四班丁',
+        //     'stu_gen' => false,
+        //     'stu_cid' => '500104199609097886',
+        //     'stu_eid' => '11145678901234',
+        //     'stu_dorm_str' => '10-531-3',
+        //     'stu_from_school'=> 'A实验中学',
+        // ]);
 
-        DB::table('t_student')->insert([
-            'stu_status' => 'CURRENT',
-            'stu_degree' => 'UG',
-            'stu_num' => '160500405',
-            'stu_name' => '四班戊',
-            'stu_gen' => false,
-            'stu_cid' => '61102519920110650X',
-            'stu_eid' => '11145678901234',
-            'stu_dorm_str' => '12-666-2',
-            'stu_from_school'=> '实验中学',
-        ]);
+        // DB::table('t_student')->insert([
+        //     'stu_status' => 'CURRENT',
+        //     'stu_degree' => 'UG',
+        //     'stu_num' => '160500405',
+        //     'stu_name' => '四班戊',
+        //     'stu_gen' => false,
+        //     'stu_cid' => '61102519920110650X',
+        //     'stu_eid' => '11145678901234',
+        //     'stu_dorm_str' => '12-666-2',
+        //     'stu_from_school'=> '实验中学',
+        // ]);
 
-        DB::table('t_student')->insert([
-            'stu_status' => 'PREPARE',
-            'stu_degree' => 'UG',
-            'stu_num' => '160400506',
-            'stu_name' => '四班己',
-            'stu_gen' => false,
-            'stu_cid' => '370114199811189539',
-            'stu_eid' => '11145678901234',
-            'stu_dorm_str' => '11-666-1',
-            'stu_from_school'=> 'B实验中学',
-        ]);
+        // DB::table('t_student')->insert([
+        //     'stu_status' => 'PREPARE',
+        //     'stu_degree' => 'UG',
+        //     'stu_num' => '160400506',
+        //     'stu_name' => '四班己',
+        //     'stu_gen' => false,
+        //     'stu_cid' => '370114199811189539',
+        //     'stu_eid' => '11145678901234',
+        //     'stu_dorm_str' => '11-666-1',
+        //     'stu_from_school'=> 'B实验中学',
+        // ]);
     }
 }
