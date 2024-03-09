@@ -1,12 +1,123 @@
-新生入学迎新系统
+## 项目说明 （2024更新）
 
-[![Codacy branch grade](https://img.shields.io/codacy/grade/6c4e2df74fd349228e32b19e119b2664/master.svg?logo=codacy&style=flat-square)](https://app.codacy.com/app/specialpointcentral/welcome?utm_source=github.com&utm_medium=referral&utm_content=1604104se-hitwh/welcome&utm_campaign=Badge_Grade_Dashboard) [![Travis (.com) branch](https://img.shields.io/travis/com/1604104se-hitwh/welcome/master.svg?logo=travis-ci&logoColor=white&style=flat-square)](https://www.travis-ci.com/1604104se-hitwh/welcome) [![GitHub](https://img.shields.io/github/license/1604104se-hitwh/welcome.svg?style=flat-square)](https://github.com/1604104se-hitwh/welcome/blob/master/LICENSE)
+此项目为武汉轻工大学服创大赛项目，原作者仓库链接：https://github.com/1604104se-hitwh/welcome/tree/master?tab=readme-ov-file
 
-Welcome HITers
+项目更新日志将于下面给出：
 
-:warning:此版本仅仅是用于SE的大作业，可能不会有后续更新，请谨慎使用
+|  更新日期   | 内容  |
+|  ----  | ----  |
+| 2024.3.9  | 暂时性修正原作者添加数据至数据库的错误，并修改readme步骤 |
 
-## 项目说明 
+
+
+## 基础配置
+
+运行环境建议：**（以下给出原作者配置，距今时间较长，亲测PHP = 8.2.13 mysql = 8.2.0 可正常运行）**
+- [x] PHP >= 7.1（推荐使用7.2以上）  
+- [x] Laravel >= 5.6  
+- [x] Mysql >= 5.6  
+- [x] Curl  
+- [ ] Opcache  
+- [ ] NGINX >= 1.13  
+- [ ] HTTP/2  
+- [ ] 优秀的云主机  
+
+## 开发环境配置
+
+### 此为测试过的步骤
+
+#### WampServer安装
+
+WampServer是一款Windows Apache MySQL PHP集成安装环境应用软件，即在Windows系统下的Apache、PHP和Mysql的服务器软件。
+
+[安装教程](https://blog.csdn.net/u012124199/article/details/113926524)
+
+如果出现vc运行库报错信息，可使用[vc运行库安装软件](https://github.com/abbodi1406/vcredist/releases)
+
+### composer安装
+
+[安装教程](https://blog.csdn.net/u012124199/article/details/113997079)
+
+安装后请启动，并保持后台运行状态
+
+### git拉仓库加配环境
+
+```
+git clone https://github.com/1212wuhu/WHPU2024.git
+cd Welcome
+composer install
+cp .env.example .env
+```
+请注意，如果在运行`composer install`语句，或者`php artisan ***`时出现`In PackageManifest.php line 122: Undefined index: name`报错，请按照以下步骤进行：
+
+- 输入`composer self-update --1`，再次尝试
+- 如果上一处失败，参考[此处](https://learnku.com/laravel/t/61340)
+
+
+### 数据库
+点击composer图标，点击mysql数据库进入数据库管理命令行，初始账号root，密码无，直接回车即可
+输入创建数据库命令，而后需要打开`.env`配置本地的数据库环境
+
+```php
+DB_CONNECTION=mysql // 可能是别的数据库，具体见Laravel
+DB_HOST=127.0.0.1   // 数据库地址
+DB_PORT=3306        // 端口
+DB_DATABASE=数据库名称
+DB_USERNAME=数据库用户名
+DB_PASSWORD=数据库密码
+```
+
+运行
+```
+php artisan key:generate
+```
+进而生成密钥
+
+
+```php
+php artisan migrate             //若之前没有表结构，则执行这条指令
+php artisan migrate:refresh //否则使用这条指令--Drop all tables and re-run all migrations
+php artisan migrate:rollback//若只希望回滚迁移全部数据表，则执行这条指令
+```
+
+
+数据填充：
+
+```php
+php artisan db:seed --class=DatabaseSeeder              // 随机生成许多学生数据
+```
+**此处注意！！由于原作者代码使用了随机填充，但是没有做去重处理，因此会有几率出现键值冲突问题，我已经修改补分代码尽量降低发生的概率，但是如若发生，请按下面步骤处理**
+
+- 观察终端完成了几个表的构建
+  ```
+  AdminTableSeeder::class,
+  DepartmentTableSeeder::class,
+  DormitoryTableSeeder::class,
+  EnrollCfgTableSeeder::class,
+  EnrollTableSeeder::class,
+  MajorTableSeeder::class,
+  StudentTableSeeder::class,
+  PostTableSeeder::class,
+  PermissionTableSeeder::class,
+  SysInfoTableSeeder::class
+  ```
+  从中断报错的表继续运行
+  ```
+  php artisan db:seed --class=*****Seeder
+  ```
+  直至上面列出的所有表构造完成
+
+
+
+### 调试运行
+
+```php
+php artisan serve
+```
+
+打开浏览器，地址栏输入：`localhost:8000`
+
+登录数据可以在相应的数据库填充器中查看，比如管理员登录就可以在`database/seeds/AdminTableSeeder.php`中选取用户名密码登录
 
 ### 简介
 
@@ -71,66 +182,7 @@ Welcome HITers
 - 前端会采用多种开源库，之后可能会有nprogrss和sweetalert2。  
 - 软件遵循GPL，若使用其他框架或库有更严格copyright要求，按照最严格执行。  
 
-## 基础配置
 
-运行环境建议：
-
-- [x] PHP >= 7.1（推荐使用7.2以上）  
-- [x] Laravel >= 5.6  
-- [x] Mysql >= 5.6  
-- [x] Curl  
-- [ ] Opcache  
-- [ ] NGINX >= 1.13  
-- [ ] HTTP/2  
-- [ ] 优秀的云主机  
-
-## 开发环境配置
-
-- 要求本地装有`composer`
-
-```php
-git clone https://github.com/1604104se-hitwh/welcome.git
-cd Welcome
-composer install
-cp .env.example .env
-```
-
-之后需要打开`.env`配置本地的数据库环境
-
-```php
-DB_CONNECTION=mysql // 可能是别的数据库，具体见Laravel
-DB_HOST=127.0.0.1   // 数据库地址
-DB_PORT=3306        // 端口
-DB_DATABASE=数据库名称
-DB_USERNAME=数据库用户名
-DB_PASSWORD=数据库密码
-```
-
-- Run `php artisan key:generate` 生成密钥
-
-数据表迁移：
-
-```php
-php artisan migrate             //若之前没有表结构，则执行这条指令
-php artisan migrate:refresh //否则使用这条指令--Drop all tables and re-run all migrations
-php artisan migrate:rollback//若只希望回滚迁移全部数据表，则执行这条指令
-```
-
-数据填充：
-
-```php
-php artisan db:seed --class=DatabaseSeeder              // 随机生成许多学生数据
-```
-
-调试运行：
-
-```php
-php artisan serve
-```
-
-打开浏览器，地址栏输入：`localhost:8000`
-
-登录数据可以在相应的数据库填充器中查看，比如管理员登录就可以在`database/seeds/AdminTableSeeder.php`中选取用户名密码登录
 
 ## 生产环境配置
 
