@@ -103,6 +103,21 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
+            指挥课程服务
+        </div>
+
+        <!-- Nav Item - Notice -->
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url('/stu/ai')}}">
+                <i class="fas fa-fw fa-bell"></i>
+                <span>AI助手</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
             迎新服务
         </div>
 

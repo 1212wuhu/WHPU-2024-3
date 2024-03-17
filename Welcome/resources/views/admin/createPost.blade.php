@@ -20,7 +20,7 @@
     <link href="{{asset('css/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
 
     <!-- Smallpop -->
-    <link href="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.css" rel="stylesheet">
+    <link href="{{asset('css/spop.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
@@ -351,22 +351,26 @@
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
 <!-- Smallpop -->
-<script src="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.js"></script>
+<script src="{{asset('js/spop.js')}}"></script>
 
 
 <!-- Custom scripts for Editor -->
-<script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<!-- <script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script> -->
+<script type="text/javascript" src="https://unpkg.com/wangeditor@4.7.15/dist/wangEditor.min.js"></script>
 <script type="text/javascript">
     var E = window.wangEditor;
     var editor = new E('#postEditor');
-    editor.customConfig.uploadImgShowBase64 = true;
-    editor.customConfig.zIndex = 1;
+    console.log('h0');
+    // 注意，下面的内容由于版本的问题已经更新了，所有.customConfig均应改为.config
+    editor.config.uploadImgShowBase64 = true;
+    editor.config.zIndex = 1;
+    console.log('h1');
     editor.create();
     var modifyeditor = new E('#postModifyEditor');
-    modifyeditor.customConfig.uploadImgShowBase64 = true;
-    editor.customConfig.zIndex = 1;
+    console.log('h2');
+    modifyeditor.config.uploadImgShowBase64 = true;
+    // editor.customConfig.zIndex = 1;
     modifyeditor.create();
-
 </script>
 
 <!-- modify and delete -->
@@ -452,6 +456,7 @@
                     var input = $("#m_post_title");
                     input.val(data.data.title);
                     input.data("postid", id);
+                    
                     modifyeditor.txt.html(data.data.context);
                     $("#modifyModal").modal('show');
                 } else {

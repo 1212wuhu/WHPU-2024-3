@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>迎新系统-哈尔滨工业大学（威海）</title>
+    <title>流程</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.7.2/css/all.min.css"
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
     <!-- Smallpop -->
-    <link href="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.css" rel="stylesheet">
+    <link href="{{asset('css/spop.css')}}" rel="stylesheet">
     <link href="{{asset('css/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -439,7 +439,7 @@
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
 <!-- Smallpop -->
-<script src="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.js"></script>
+<script src="{{asset('js/spop.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.0/dist/sweetalert2.all.min.js"
         integrity="sha256-wWhZbmmAXb1JDP1U+ywgt4FHA4XIxzcYyGEFnInYJMQ=" crossorigin="anonymous"></script>
@@ -447,31 +447,101 @@
 
 
 <!-- Custom scripts for Editor -->
-<script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/wangeditor@4.7.15/dist/wangEditor.min.js"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap-datetimepicker.zh-CN.js')}}"></script>
 <script type="text/javascript">
     var E = window.wangEditor;
     var editor1 = new E('#reportInfoEditor');
-    editor1.customConfig.uploadImgShowBase64 = true;
-    editor1.customConfig.zIndex = 1;
+    editor1.config.uploadImgShowBase64 = true;
+    editor1.config.zIndex = 1;
     editor1.create();
     var editor2 = new E('#postModifyEditor');
-    editor2.customConfig.uploadImgShowBase64 = true;
-    editor2.customConfig.zIndex = 1;
+    editor2.config.uploadImgShowBase64 = true;
+    editor2.config.zIndex = 1;
     editor2.create();
 </script>
 
+<script type="text/javascript" src='//webapi.amap.com/maps?v=2.0&key=0a4d80176be0dde936743e7e03a5f237&plugin=AMap.ToolBar'></script>
+    <!-- UI组件库 1.0 -->
+    <script src="//webapi.amap.com/ui/1.1/main.js?v=1.1.1"></script>
+    <script type="text/javascript">
+    AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
+        var map = new AMap.Map('mapContainer', {
+            zoom: 16,
+            scrollWheel: false
+        })
+        var positionPicker = new PositionPicker({
+            mode: 'dragMap',
+            map: map
+        });
+
+        positionPicker.on('success', function(positionResult) {
+            console.log('sucess');
+        });
+        positionPicker.on('fail', function(positionResult) {
+            console.log('fail');
+        });
+        
+        positionPicker.start();
+    });
+</script>
+
 <!--异步加载 高德地图JSAPI ，注意 callback 参数-->
-<script src="https://webapi.amap.com/maps?v=1.4.13&key=0a4d80176be0dde936743e7e03a5f237&callback=my_init"></script>
+<!-- <script src="//webapi.amap.com/maps?v=2.0&key=283d29d48a72af6b61305c99b1f8638c&callback=my_init"></script> -->
+
+<!--引入UI组件库异步版本main-async.js（1.1版本） -->
+<!-- <script src="//webapi.amap.com/ui/1.1/main-async.js"></script> -->
+<!-- 
+<script type="text/javascript">
+//JSAPI回调入口
+function my_init() {
+       initAMapUI(); //这里调用initAMapUI初始化
+       //其他逻辑
+       //加载PositionPicker，loadUI的路径参数为模块名中 'ui/' 之后的部分
+        AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
+            var map = new AMap.Map('mapContainer',{
+                zoom:16
+            })
+            var positionPicker = new PositionPicker({
+                mode:'dragMarker',//设定为拖拽地图模式，可选'dragMap'、'dragMarker'，默认为'dragMap'
+                map:map//依赖地图对象
+            });
+            //TODO:事件绑定、结果处理等
+            positionPicker.on('success', function(positionResult) {
+                console.log('sucess');
+                // document.getElementById('lnglat').innerHTML = positionResult.position;
+                // document.getElementById('address').innerHTML = positionResult.address;
+                // document.getElementById('nearestJunction').innerHTML = positionResult.nearestJunction;
+                // document.getElementById('nearestRoad').innerHTML = positionResult.nearestRoad;
+                // document.getElementById('nearestPOI').innerHTML = positionResult.nearestPOI;
+            });
+            positionPicker.on('fail', function(positionResult) {
+                console.log('fail');
+                console.log(positionResult.address)
+                // 海上或海外无法获得地址信息
+                // document.getElementById('lnglat').innerHTML = ' ';
+                // document.getElementById('address').innerHTML = ' ';
+                // document.getElementById('nearestJunction').innerHTML = ' ';
+                // document.getElementById('nearestRoad').innerHTML = ' ';
+                // document.getElementById('nearestPOI').innerHTML = ' ';
+            });
+            positionPicker.start();
+        });
+}
+</script> -->
+
+
+<!--异步加载 高德地图JSAPI ，注意 callback 参数-->
+<!-- <script src="https://webapi.amap.com/maps?v=1.4.13&key=283d29d48a72af6b61305c99b1f8638c&callback=my_init"></script> -->
 
 <!--引入UI组件库异步版本main-async.js（1.0版本） -->
-<script src="https://webapi.amap.com/ui/1.0/main-async.js"></script>
-
+<!-- <script src="https://webapi.amap.com/ui/1.0/main-async.js"></script> -->
+<!-- 
 <script type="text/javascript">
     //JSAPI回调入口
     var positionPicker;
-    var AMapUIProtocol = 'https:';
+    // var AMapUIProtocol = 'https:';
     var map = new AMap.Map('mapContainer', {
         zoom: 15,
         center: [122.083553, 37.533764],
@@ -498,7 +568,7 @@
         });
 
     }
-</script>
+</script> -->
 
 <!-- Data Picker -->
 <script>

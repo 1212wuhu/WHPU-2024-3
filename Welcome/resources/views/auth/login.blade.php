@@ -2,7 +2,7 @@
 <html lang="zh">
 
 <head>
-    <title>迎新系统-哈尔滨工业大学（威海）</title>
+    <title>武汉轻工大学</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

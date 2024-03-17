@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
     <!-- Smallpop -->
-    <link href="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.css" rel="stylesheet">
+    <link href="{{asset('css/spop.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
@@ -415,7 +415,8 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 <!-- Smallpop -->
-<script src="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.js"></script>
+<script src="{{asset('js/spop.js')}}"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.0/dist/sweetalert2.all.min.js"
         integrity="sha256-wWhZbmmAXb1JDP1U+ywgt4FHA4XIxzcYyGEFnInYJMQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">

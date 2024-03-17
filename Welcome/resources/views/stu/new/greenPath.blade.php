@@ -21,7 +21,7 @@
           integrity="sha256-wB5fOxF9Sm0mGhft46OVh4gehcDAzvpNFIZUmCHZzSo=" crossorigin="anonymous">
 
     <!-- Smallpop -->
-    <link href="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.css" rel="stylesheet">
+    <link href="{{asset('css/spop.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
@@ -477,7 +477,8 @@
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
 <!-- Smallpop -->
-<script src="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.js"></script>
+<script src="{{asset('js/spop.js')}}"></script>
+
 
 <!-- bootstrap-fileinput -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-fileinput@5.0.3/js/fileinput.min.js"
