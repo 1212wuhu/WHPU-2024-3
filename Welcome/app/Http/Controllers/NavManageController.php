@@ -49,15 +49,16 @@ class NavManageController extends Controller
             $times = json_decode($item->shtl_time);
             $item->time = array();
             $item->stuNumber = array();
-            if(is_array($times)) {
+            if (is_array($times)) {
                 $tmptime = array();
                 $tmpstuNumber = array();
                 foreach ($times as $time) {
-
-                    array_push($tmptime, date("m月d日 H:i",$time));
-                    $getNumber = ShtlRecord::where(
-                        'shtl_id', $item->id
-                    )->whereRaw('UNIX_TIMESTAMP(record_time) = '.(int)$time)->count();
+                    $timestamp = strtotime($time);
+                    $formattedTime = date("m月d日 H:i", $timestamp);   //修复bug
+                    array_push($tmptime, $formattedTime);
+                    $getNumber = ShtlRecord::where('shtl_id', $item->id)
+                        ->whereRaw('UNIX_TIMESTAMP(record_time) = ' . (int)$timestamp)
+                        ->count();
                     array_push($tmpstuNumber, $getNumber);
                 }
                 $item->time = $tmptime;
