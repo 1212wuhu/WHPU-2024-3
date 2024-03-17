@@ -40,6 +40,8 @@ Route::group(['prefix'=>'stu','middleware' => ['checkAuth:new']], function () {
 
     Route::get('queryCountryFolk', 'StuController@queryCountryFolk');
 
+    Route::get('ai', 'AiController@index');
+
     Route::get('posts', 'PostController@index');
 
     Route::get('posts/{postId}', 'PostController@show');

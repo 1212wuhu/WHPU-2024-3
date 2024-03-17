@@ -550,15 +550,16 @@
 
 
 <!-- Custom scripts for Editor -->
+<!-- 这里是更新之后的新库 -->
 <script type="text/javascript" src="https://unpkg.com/wangeditor@4.7.15/dist/wangEditor.min.js"></script>
 <!-- <script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script> -->
 <script type="text/javascript" src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
 <script type="text/javascript">
     var E = window.wangEditor;
     var editor = new E('#postModifyEditor');
-    console.log('h');
-    editor.customConfig.uploadImgShowBase64 = true;
-    editor.customConfig.zIndex = 1;
+    // console.log('h');
+    editor.config.uploadImgShowBase64 = true;
+    editor.config.zIndex = 1;
     editor.create();
 </script>
 

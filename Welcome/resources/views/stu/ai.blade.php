@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>迎新系统-哈尔滨工业大学（威海）</title>
+    <title>AI测试</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.7.2/css/all.min.css"
@@ -261,7 +261,7 @@
                 <!-- Content Column -->
                 <div class="mb-4">
                     <!-- Illustrations -->
-                    <div class="card mb-4">
+                    <!-- <div class="card mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">所有通知</h6>
                         </div>
@@ -293,7 +293,7 @@
                             </table>
                             {{ $posts->links() }}
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- /.container-fluid -->
