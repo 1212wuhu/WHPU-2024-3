@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>迎新系统-哈尔滨工业大学（威海）</title>
+    <title>武汉轻工大学</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.7.2/css/all.min.css"
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
     <!-- Smallpop -->
-    <link href="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.css" rel="stylesheet">
+    <link href="{{asset('css/spop.css')}}" rel="stylesheet">
     <link href="{{asset('css/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -542,7 +542,7 @@
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
 <!-- Smallpop -->
-<script src="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.js"></script>
+<script src="{{asset('js/spop.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.0/dist/sweetalert2.all.min.js"
         integrity="sha256-wWhZbmmAXb1JDP1U+ywgt4FHA4XIxzcYyGEFnInYJMQ=" crossorigin="anonymous"></script>
@@ -550,11 +550,13 @@
 
 
 <!-- Custom scripts for Editor -->
-<script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/wangeditor@4.7.15/dist/wangEditor.min.js"></script>
+<!-- <script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script> -->
 <script type="text/javascript" src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
 <script type="text/javascript">
     var E = window.wangEditor;
     var editor = new E('#postModifyEditor');
+    console.log('h');
     editor.customConfig.uploadImgShowBase64 = true;
     editor.customConfig.zIndex = 1;
     editor.create();
@@ -622,6 +624,7 @@
         title.text('添加新的站点');
         title.data('type', 'create');
         $('#postTitle').val('');
+        // console.log(editor);
         editor.txt.clear();
         $("#selectTime").html("还没有设置");
         $('#modifyModal').modal('show');
