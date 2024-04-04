@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>迎新系统-哈尔滨工业大学（威海）</title>
+    <title>学校信息</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.7.2/css/all.min.css"
@@ -406,12 +406,13 @@
 
 
 <!-- Custom scripts for Editor -->
-<script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<!-- <script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script> -->
+<script type="text/javascript" src="https://unpkg.com/wangeditor@4.7.15/dist/wangEditor.min.js"></script>
 <script type="text/javascript">
     var E = window.wangEditor;
     var editor = new E('#schoolInfoEditor');
-    editor.customConfig.uploadImgShowBase64 = true;
-    editor.customConfig.zIndex = 1;
+    editor.config.uploadImgShowBase64 = true;
+    editor.config.zIndex = 1;
     editor.create();
 </script>
 

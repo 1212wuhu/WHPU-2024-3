@@ -19,11 +19,20 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
     <!-- Smallpop -->
-    <link href="{{asset('css/spop.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <script>
+	window.difyChatbotConfig = { 
+	 token: 'FKFU1qihn8fihmCt'
+	}
+   </script>
+   <script
+	src="https://udify.app/embed.min.js"
+	id="FKFU1qihn8fihmCt"
+	defer>
+   </script>
 </head>
 
 <body id="page-top">
@@ -81,7 +90,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="{{url('/stu/nav')}}">
                 <i class="fas fa-fw fa-plane-arrival"></i>
-                <span>到站信息</span>
+                <span>ai信息</span>
             </a>
         </li>
 
@@ -144,6 +153,27 @@
             <a class="nav-link" href="{{url('/stu/greenPath')}}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>绿色通道</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <div class="sidebar-heading">
+            ai1
+        </div>
+
+        <!-- Nav Item - selfInfo -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/stu/personalInfo')}}">
+                <i class="fas fa-fw fa-info"></i>
+                <span>ai信息分析</span></a>
+        </li>
+
+        <!-- Nav Item - GreenPath -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/stu/greenPath')}}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>信息推荐</span></a>
         </li>
 
         <!-- Divider -->
@@ -239,169 +269,12 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">到站信息</h1>
-                </div>
-
-                <div class="row">
-                    <!-- Infomation Card ID number -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">您的学号
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$stuID}}</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-id-card fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Infomation Card report time -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">报到时间
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$stuReportTime}}</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Column -->
-                <div class="card-columns">
-                    <div class="mb-4">
-                        @if(count($stationInfos)==0) {{-- 还没有信息 --}}
-                        <p>还没有信息</p>
-                        @else
-                            @foreach($stationInfos as $stationInfo)
-                                <div class="card mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">{{$stationInfo->port_name}}</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        {!! $stationInfo->port_info !!}
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="card mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">预约接车</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="input-group">
-                                    <select class="custom-select" id="book_station">
-                                        <option value="-1" selected>选择站点</option>
-                                        @foreach($stationInfos as $stationInfo)
-                                        <option value="{{$stationInfo->id}}">{{$stationInfo->port_name}}</option>
-                                        @endforeach
-                                    </select>
-                                    <select class="custom-select" id="book_time">
-                                        <option value="-1" selected>选择时间</option>
-                                    </select>
-                                    <div class="input-group-append">
-                                        <button id="bookSubmit" class="btn btn-outline-secondary" type="button">提交预约
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <table class="table table-bordered mt-4">
-                                    <thead>
-                                    <tr role="row">
-                                        <th>预约时间</th>
-                                        <th>站点</th>
-                                        <th>操作</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="bookList">
-                                    @if(count($appointments)==0) {{-- 还没有信息 --}}
-                                    <tr role="row">
-                                        <td colspan="4">还没有预约</td>
-                                    </tr>
-                                    @else @foreach($appointments as $appointment)
-                                        <tr role="row">
-                                            <td>{{$appointment->time}}</td>
-                                            <td>{{$appointment->station}}</td>
-                                            <td>
-                                                <button class="btn btn-outline-danger btn-sm" data-target="{{$appointment->id}}"
-                                                        id="deleteBook">
-                                                    删除预约
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    @endforeach @endif
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Harbin Institute of Technology , Weihai</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">确认退出？</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">选择“退出”退出登录</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
-                <a class="btn btn-primary" href="{{url($toLogoutURL)}}">退出</a>
-            </div>
-        </div>
-    </div>
-</div>
+            <iframe
+ src="https://udify.app/chatbot/FKFU1qihn8fihmCt"
+ style="width: 100%; min-height: 700px"
+ frameborder="0" 
+ allow="microphone">
+</iframe>
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
@@ -415,8 +288,7 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 <!-- Smallpop -->
-<script src="{{asset('js/spop.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/gh/RioHsc/Smallpop/dist/spop.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.0/dist/sweetalert2.all.min.js"
         integrity="sha256-wWhZbmmAXb1JDP1U+ywgt4FHA4XIxzcYyGEFnInYJMQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">

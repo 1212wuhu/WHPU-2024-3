@@ -103,7 +103,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            指挥课程服务
+            智慧课程服务
         </div>
 
         <!-- Nav Item - Notice -->
