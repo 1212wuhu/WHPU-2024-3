@@ -2,7 +2,7 @@
 <html lang="zh">
 
 <head>
-    <title>武汉轻工大学</title>
+    <title>武汉轻工大学金银湖校区</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +17,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="top-container">
         <a class="navbar-brand" href="#">
-            <img height="40" src="{{asset('img/logo.svg')}}"/>
+            <img height="40" src="{{asset('img/logo1.png')}}"/>
             <span class="top-title">迎新系统</span>
         </a>
     </div>
@@ -27,7 +27,7 @@
 <div class="body-container" style="padding: 20px">
     <div class="row">
         <div class="col-md-7 d-none d-md-block">
-            <img src="http://www.hitwh.edu.cn/_upload/article/images/4e/4a/7f2732964561a6fc97bc727662d6/62fa4c22-18e3-4332-8787-ff64007ebccd.jpg"
+            <img src="https://www.whpu.edu.cn/img/lmpic1.jpg"
                  class="img-fluid" style="border-radius:15px;">
         </div>
         <div class="col-md-5">
@@ -123,20 +123,20 @@
         <div class="row footer-contianer">
             <div class="col-sm-6 connect-info">
                 <p>联系方式</p>
-                <p>地址：山东省威海市环翠区文化西路2号</p>
-                <p>邮编：264209</p>
-                <p>电话：0631-5689455</p>
-                <p>传真：0631-5689455</p>
-                <p>电子邮箱：zsb@hitwh.edu.cn</p>
+                <p>地址：湖北省武汉市东西湖区环湖中路36号</p>
+                <p>邮编：430023</p>
+                <p>电话：027-83928885</p>
+                <p>传真：83928885</p>
+                <p>电子邮箱：zsb@whpu.edu.cn</p>
             </div>
             <div class="col-sm-6" style="text-align: center;vertical-align:bottom; ">
-                <embed class="footer-logo" src="img/logo.svg"/>
+                <embed class="footer-logo" src="img/logo1.png"/>
             </div>
         </div>
         <div class="copy-right">
             <div class="copyright-div">
-                <p>哈尔滨工业大学（威海）本科生招生办公室 版权所有</p>
-                <p>Copyright©2017 Harbin Institute of Technology , Weihai</p>
+                <p>武汉轻工大学 本科生招生办公室 版权所有</p>
+                <p>Copyright©2024 Wuhan Polytechnic University , Jinyinhu</p>
             </div>
         </div>
     </div>
