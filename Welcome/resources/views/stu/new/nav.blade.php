@@ -24,16 +24,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-    <script>
-	window.difyChatbotConfig = { 
-	 token: 'FKFU1qihn8fihmCt'
-	}
-   </script>
-   <script
-	src="https://udify.app/embed.min.js"
-	id="FKFU1qihn8fihmCt"
-	defer>
-   </script>
+
 </head>
 
 <body id="page-top">
@@ -49,7 +40,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">智能问答系统</div>
+            <div class="sidebar-brand-text mx-3">智慧问答系统</div>
         </a>
 
         <!-- Divider -->
@@ -95,6 +86,7 @@
             </a>
         </li>
 
+
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -124,6 +116,11 @@
                 <i class="fas fa-fw fa-bell"></i>
                 <span>所有通知</span></a>
         </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
         <div class="sidebar-heading">
             迎新服务
         </div>
@@ -165,7 +162,6 @@
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>绿色通道</span></a>
         </li>
-        
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -260,12 +256,169 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-            <iframe
- src="http://localhost:5173/"
- style="width: 100%;length:100%; min-height: 700px"
- frameborder="0" 
- allow="microphone">
-</iframe>
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">到站信息</h1>
+                </div>
+
+                <div class="row">
+                    <!-- Infomation Card ID number -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">您的学号
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$stuID}}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-id-card fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infomation Card report time -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">报到时间
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$stuReportTime}}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="card-columns">
+                    <div class="mb-4">
+                        @if(count($stationInfos)==0) {{-- 还没有信息 --}}
+                        <p>还没有信息</p>
+                        @else
+                            @foreach($stationInfos as $stationInfo)
+                                <div class="card mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">{{$stationInfo->port_name}}</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        {!! $stationInfo->port_info !!}
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="card mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">预约接车</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group">
+                                    <select class="custom-select" id="book_station">
+                                        <option value="-1" selected>选择站点</option>
+                                        @foreach($stationInfos as $stationInfo)
+                                        <option value="{{$stationInfo->id}}">{{$stationInfo->port_name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <select class="custom-select" id="book_time">
+                                        <option value="-1" selected>选择时间</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button id="bookSubmit" class="btn btn-outline-secondary" type="button">提交预约
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <table class="table table-bordered mt-4">
+                                    <thead>
+                                    <tr role="row">
+                                        <th>预约时间</th>
+                                        <th>站点</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="bookList">
+                                    @if(count($appointments)==0) {{-- 还没有信息 --}}
+                                    <tr role="row">
+                                        <td colspan="4">还没有预约</td>
+                                    </tr>
+                                    @else @foreach($appointments as $appointment)
+                                        <tr role="row">
+                                            <td>{{$appointment->time}}</td>
+                                            <td>{{$appointment->station}}</td>
+                                            <td>
+                                                <button class="btn btn-outline-danger btn-sm" data-target="{{$appointment->id}}"
+                                                        id="deleteBook">
+                                                    删除预约
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Wuhan Polytechnic University , Jinyinhu</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">确认退出？</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">选择“退出”退出登录</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+                <a class="btn btn-primary" href="{{url($toLogoutURL)}}">退出</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
