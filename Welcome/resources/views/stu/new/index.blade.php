@@ -54,7 +54,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            信息查询
+            核心系统
         </div>
 
         <!-- Nav Item - Information Query -->
