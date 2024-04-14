@@ -18,7 +18,7 @@ class StudentTableSeeder extends Seeder
             DB::table('t_student')->insert([
                 'stu_status' => 'PREPARE',
                 'stu_degree' => 'UG',
-                'stu_num' => '16040' . sprintf($i) . sprintf("%02d", $i),
+                'stu_num' => '16041' . sprintf($i) . sprintf("%02d", $i),
                 'stu_name' => str_random(6),
                 'stu_gen' => rand(0, 1),
                 'stu_cid' => $this->idValidator->fakeId(true),
@@ -32,7 +32,7 @@ class StudentTableSeeder extends Seeder
             DB::table('t_student')->insert([
                 'stu_status' => 'PREPARE',
                 'stu_degree' => 'UG',
-                'stu_num' => '16020' . sprintf("%02d", $i) . sprintf("%02d", $i),
+                'stu_num' => '16021' . sprintf("%02d", $i) . sprintf("%02d", $i),
                 'stu_name' => str_random(6),
                 'stu_gen' => rand(0, 1),
                 'stu_cid' => $this->idValidator->fakeId(true),
@@ -45,7 +45,7 @@ class StudentTableSeeder extends Seeder
             DB::table('t_student')->insert([
                 'stu_status' => 'CURRENT',
                 'stu_degree' => 'UG',
-                'stu_num' => '15040' . sprintf("%02d", $i) . sprintf("%02d", $i),
+                'stu_num' => '15041' . sprintf("%02d", $i) . sprintf("%02d", $i),
                 'stu_name' => str_random(6),
                 'stu_gen' => rand(0, 1),
                 'stu_cid' => $this->idValidator->fakeId(true),
@@ -56,10 +56,10 @@ class StudentTableSeeder extends Seeder
         DB::table('t_student')->insert([
             'stu_status' => 'PREPARE',
             'stu_degree' => 'UG',
-            'stu_num' => '160400400',
+            'stu_num' => '160400412',
             'stu_name' => '张三丰',
             'stu_gen' => true,
-            'stu_cid' => "230123199010106583",
+            'stu_cid' => "230123199010144583",
             'stu_eid' => '12345678901234',
             'stu_dorm_str' => '12-666-6',
             'stu_from_school'=> '实验中学',
@@ -68,10 +68,10 @@ class StudentTableSeeder extends Seeder
         DB::table('t_student')->insert([
             'stu_status' => 'PREPARE',
             'stu_degree' => 'UG',
-            'stu_num' => '160400401',
+            'stu_num' => '160400433',
             'stu_name' => '四班甲',
             'stu_gen' => true,
-            'stu_cid' => '13073119600207437X',
+            'stu_cid' => '13073119600327437X',
             'stu_eid' => '11145678901234',
             'stu_dorm_str' => '6-170-4',
             'stu_from_school'=> '实验中学',

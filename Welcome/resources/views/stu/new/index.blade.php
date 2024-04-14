@@ -339,11 +339,97 @@
                         </div>
                     </div>
 
-                    
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">你的同学</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-12">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="groupAccountChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-12">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="groupProviceChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <a target="_blank" rel="nofollow" href="{{url($toAllStuURL)}}">查看所有同学 &rarr;</a>
+                        </div>
+                    </div>
 
-                    
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">你的室友</h6>
+                        </div>
+                        <div class="card-body table-responsive">
+                        <table class="table table-bordered">
+                                <thead>
+                                <tr role="row">
+                                    <th>姓名</th>
+                                    <th>学号</th>
+                                    <th>床位</th>
+                                    <th>来自</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @if(count($dormStus)==0) {{-- 还没有信息 --}}
+                                <tr role="row">
+                                    <td colspan="4">还没有信息</td>
+                                </tr>
+                                @else @foreach($dormStus as $dormStu)
+                                    <tr role="row">
+                                        <td>{{$dormStu->stu_name}}</td>
+                                        <td>{{$dormStu->stu_num}}</td>
+                                        <td>{{$dormStu->stu_dorm_str}}</td>
+                                        <td>{{$dormStu->address}}</td>
+                                    </tr>
+                                @endforeach @endif
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                    
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">老乡信息</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr role="row">
+                                        <th>姓名</th>
+                                        <th>学号</th>
+                                        <th>性别</th>
+                                        <th>毕业学校</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @if (count($localFolks)==0)
+                                        <td colspan="4">还没有信息</td>
+                                    @else @foreach ($localFolks as $localFolk)
+                                        <tr role="row">
+                                            <td>{{$localFolk->stu_name}}</td>
+                                            <td>{{$localFolk->stu_num}}</td>
+                                            <td>
+                                                @if($localFolk->stu_gen == 0)
+                                                    男
+                                                @else
+                                                    女
+                                                @endif
+                                            </td>
+                                            <td>{{$localFolk->stu_from_school}}</td>
+                                        </tr>
+                                    @endforeach @endif
+                                    </tbody>
+                                </table>
+                                <a target="_blank" rel="nofollow" href="{{url($toLocalFolkURL)}}">查看全部老乡 &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
