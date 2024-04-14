@@ -45,7 +45,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">迎新系统 <sup id="user-type">{{$sysType}}</sup></div>
+            <div class="sidebar-brand-text mx-3">智慧问答系统</div>
         </a>
 
         <!-- Divider -->
