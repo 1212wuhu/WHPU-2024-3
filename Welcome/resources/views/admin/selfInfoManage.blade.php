@@ -113,7 +113,7 @@
 
         <!-- Nav Item - Notice -->
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/stu/ai')}}">
+            <a class="nav-link" href="{{url('/admin/ai')}}">
                 <i class="fas fa-fw fa-bell"></i>
                 <span>AI助手</span></a>
         </li>
