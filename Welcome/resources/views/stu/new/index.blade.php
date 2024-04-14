@@ -87,6 +87,22 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
+            智慧课程服务
+        </div>
+
+        <!-- Nav Item - Notice -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/stu/ai')}}">
+                <i class="fas fa-fw fa-bell"></i>
+                <span>AI助手</span></a>
+        </li>
+
+        
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
             通知服务
         </div>
 
@@ -100,7 +116,51 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            迎新服务
+        </div>
+
+        <!-- Nav Item - welcome -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWel"
+               aria-expanded="true" aria-controls="collapseWel">
+                <i class="fas fa-fw fa-route"></i>
+                <span>报到流程</span>
+            </a>
+            <div id="collapseWel" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">你可以查看：</h6>
+                    <a class="collapse-item" href="{{url('/stu/enrollInfo')}}">报到说明</a>
+                    <a class="collapse-item" href="{{url('/stu/enrollGuide')}}">开始报到</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            信息填报
+        </div>
+
+        <!-- Nav Item - selfInfo -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/stu/personalInfo')}}">
+                <i class="fas fa-fw fa-info"></i>
+                <span>个人信息</span></a>
+        </li>
+
+        <!-- Nav Item - GreenPath -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/stu/greenPath')}}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>绿色通道</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
 
         
 
