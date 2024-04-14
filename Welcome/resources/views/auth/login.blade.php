@@ -18,7 +18,7 @@
     <div class="top-container">
         <a class="navbar-brand" href="#">
             <img height="40" src="{{asset('img/logo1.png')}}"/>
-            <span class="top-title">迎新系统</span>
+            <span class="top-title">智能问答系统</span>
         </a>
     </div>
 </nav>
