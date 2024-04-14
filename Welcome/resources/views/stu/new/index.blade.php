@@ -78,7 +78,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{url('/stu/nav')}}">
                 <i class="fas fa-fw fa-plane-arrival"></i>
-                <span>到站信息</span>
+                <span>教育智能推荐</span>
             </a>
         </li>
 
