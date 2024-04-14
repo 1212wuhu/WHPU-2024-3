@@ -54,7 +54,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            核心系统
+            信息查询
         </div>
 
         <!-- Nav Item - Information Query -->
@@ -78,7 +78,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{url('/stu/nav')}}">
                 <i class="fas fa-fw fa-plane-arrival"></i>
-                <span>教育智能推荐</span>
+                <span>到站信息</span>
             </a>
         </li>
 
