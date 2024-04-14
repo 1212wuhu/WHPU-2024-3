@@ -36,12 +36,9 @@
                     <ul class="nav nav-pills card-header-pills" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="newStudent-tab" data-toggle="tab" href="#new" role="tab"
-                               aria-controls="new" aria-selected="true">新生</a>
+                               aria-controls="new" aria-selected="true">学生</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="oldStudent-tab" data-toggle="tab" href="#old" role="tab"
-                               aria-controls="old" aria-selected="true">在校生</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" id="admin-tab" data-toggle="tab" href="#admin" role="tab"
                                aria-controls="admin" aria-selected="true">管理员</a>
@@ -51,7 +48,7 @@
                 <div class="card-body tab-content">
                     <form class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="newStudent-tab"
                           method="POST" action="./login">
-                        <h4 class="card-title">新生登录</h4>
+                        <h4 class="card-title">学生登录</h4>
                         {{ csrf_field() }}
                         <input type="hidden" name="loginType" value="new">
                         <div class="form-group">
