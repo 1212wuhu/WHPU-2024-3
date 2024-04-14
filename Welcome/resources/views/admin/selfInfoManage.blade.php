@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>迎新系统-哈尔滨工业大学（威海）</title>
+    <title>武汉轻工大学</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.8.1/css/all.min.css"
@@ -42,7 +42,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">迎新系统 <sup id="user-type">{{$sysType}}</sup></div>
+            <div class="sidebar-brand-text mx-3">智慧问答系统</div>
         </a>
 
         <!-- Divider -->
@@ -102,6 +102,20 @@
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>绿色通道</span>
             </a>
+        </li>
+
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            智慧课程服务
+        </div>
+
+        <!-- Nav Item - Notice -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/stu/ai')}}">
+                <i class="fas fa-fw fa-bell"></i>
+                <span>AI助手</span></a>
         </li>
 
         <!-- Divider -->
@@ -278,7 +292,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Harbin Institute of Technology , Weihai</span>
+                    <span>Copyright &copy; Wuhan Polytechnic University , Jinyinhu</span>
                 </div>
             </div>
         </footer>
