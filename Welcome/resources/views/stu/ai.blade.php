@@ -300,7 +300,12 @@
 
         </div>
         <!-- End of Main Content -->
-
+        <iframe
+ src="http://localhost:5173/"
+ style="width: 100%;length:100%; min-height: 700px"
+ frameborder="0" 
+ allow="microphone">
+</iframe>
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
